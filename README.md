@@ -1,5 +1,5 @@
-# kotlin-aws-lambda-cdk-github-actions-template
-Template for Kotlin Lambda with Infra in Kotlin CDK and CI/CD with GitHub actions
+# kotlin-spring-cloud-function-example-aws-lambda
+Spring cloud function in Kotlin example for AWS Lambda
 
 ## Infrastructure
 Kotlin Lambda Example contains 1 CDK stacks with a HelloWorld Kotlin/JVM lambda on ARM64 architecture

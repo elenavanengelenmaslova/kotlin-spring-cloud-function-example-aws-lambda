@@ -7,7 +7,7 @@
  * in the user manual at https://docs.gradle.org/7.6/userguide/multi_project_builds.html
  */
 
-rootProject.name = "kotlin-aws-lambda-cdk-github-actions-template"
+rootProject.name = "kotlin-spring-cloud-function-example-aws-lambda"
 include(":example")
 project(":example").projectDir = file("software/example")
 include(":infrastructure")

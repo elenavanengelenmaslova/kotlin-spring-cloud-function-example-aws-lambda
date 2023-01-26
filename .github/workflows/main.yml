@@ -1,7 +1,7 @@
 name: Kotlin Lambda Example CI/CD Main
 on:
   push:
-    branches: [ main ]
+    branches: [ no-deploy-main ]
     paths-ignore:
       - '**.md'
   workflow_dispatch:
