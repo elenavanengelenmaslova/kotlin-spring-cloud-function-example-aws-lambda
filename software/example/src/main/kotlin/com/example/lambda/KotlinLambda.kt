@@ -1,12 +1,22 @@
 package com.example.lambda
 
-import com.amazonaws.services.lambda.runtime.Context
-import com.amazonaws.services.lambda.runtime.RequestHandler
+import com.google.gson.Gson
+import org.slf4j.LoggerFactory
+import org.springframework.context.annotation.Bean
+import org.springframework.context.annotation.Configuration
+import org.springframework.messaging.Message
 
 @Suppress("UNUSED")
-class KotlinLambda : RequestHandler<Map<Any, Any>, String> {
+@Configuration
+class KotlinLambda {
+    private val logger = LoggerFactory.getLogger(this::class.java)
+    private val gson = Gson()
 
-    override fun handleRequest(event: Map<Any, Any>, context: Context): String {
-        return "Hello world!"
+    @Bean
+    fun handleRequest(): (Message<Any>) -> String {
+        return {
+            logger.info(gson.toJson(it))
+            "Hello world!"
+        }
     }
 }

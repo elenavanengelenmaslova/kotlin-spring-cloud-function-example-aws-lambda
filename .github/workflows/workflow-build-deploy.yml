@@ -1,4 +1,4 @@
-name: Standard CI/CD workflow for Kotlin Lambda example
+name: Standard CI/CD workflow for Kotlin Spring Cloud Function example
 
 on:
   workflow_call:

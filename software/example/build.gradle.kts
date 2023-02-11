@@ -1,8 +1,18 @@
 
+plugins {
+    kotlin("plugin.spring") version "1.8.10"
+}
+
 dependencies {
     implementation("software.amazon.awssdk:dynamodb-enhanced:2.18.41")
     implementation("com.amazonaws:aws-lambda-java-core:1.2.2")
     implementation("com.amazonaws:aws-lambda-java-events:3.11.0")
+    // https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-function-adapter-aws
+    implementation("org.springframework.cloud:spring-cloud-function-adapter-aws:4.0.1")
+    // https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-function-web
+    implementation("org.springframework.cloud:spring-cloud-function-web:4.0.1")
+    // https://mvnrepository.com/artifact/com.google.code.gson/gson
+    implementation("com.google.code.gson:gson:2.10.1")
     implementation("org.slf4j:slf4j-api:2.0.5")
     implementation("org.slf4j:slf4j-simple:2.0.5")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5:1.5.31")

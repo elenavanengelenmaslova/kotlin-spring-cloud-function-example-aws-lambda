@@ -12,13 +12,13 @@ fun main() {
         .region(System.getenv("DEPLOY_TARGET_REGION"))
         .build()
 
-    val stackName = "Kotlin-Lambda-Hello-World"
+    val stackName = "Kotlin-Lambda-Spring-Cloud-Function"
     InfrastructureJvmArm64Stack(
         app, stackName,
         StackProps.builder()
             .stackName(stackName)
             .env(environment)
-            .description("Kotlin/ Hello world")
+            .description("Kotlin Spring Cloud Function")
             .build()
     )
 

@@ -12,15 +12,20 @@ import software.constructs.Construct
 
 class InfrastructureJvmArm64Stack(scope: Construct, id: String, props: StackProps) : Stack(scope, id, props) {
     init {
-        val functionId = "lambdaHelloWorld"
+        val functionId = "lambdaStringCloudFunctionJvmARM64"
         Function.Builder.create(this, functionId)
-            .description("Kotlin Lambda Hello World")
-            .handler("com.example.lambda.KotlinLambda::handleRequest")
+            .description("Kotlin Lambda Spring Cloud Function")
+            .handler("org.springframework.cloud.function.adapter.aws.FunctionInvoker")
             .runtime(Runtime.JAVA_11)
             .code(Code.fromAsset("../build/dist/function.zip"))
             .architecture(Architecture.ARM_64)
             .logRetention(RetentionDays.ONE_WEEK)
             .memorySize(512)
+            .environment(
+                mapOf(
+                    "SPRING_CLOUD_FUNCTION_DEFINITION" to "handleRequest"
+                )
+            )
             .timeout(Duration.seconds(120))
             .build()
     }

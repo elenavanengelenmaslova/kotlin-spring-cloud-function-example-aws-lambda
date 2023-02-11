@@ -1,4 +1,4 @@
-name: Kotlin Lambda Example CI/CD Main
+name: Kotlin Spring Cloud Function Example CI/CD Main
 on:
   push:
     branches: [ no-deploy-main ]

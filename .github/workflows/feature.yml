@@ -1,4 +1,4 @@
-name: Kotlin Lambda Example CI/CD Feature
+name: Kotlin Spring Cloud Function Example CI/CD Feature
 on:
   push:
     branches: [ feature-* ]
