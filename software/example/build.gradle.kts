@@ -51,7 +51,7 @@ tasks.register<Jar>("packageDistribution") {
     into("lib") {
         from(configurations.runtimeClasspath)
     }
-    archiveFileName.set("function.jar")
+    archiveFileName.set("function.zip")
     destinationDirectory.set(file("${project.rootDir}/build/dist"))
     dependsOn(":example:build")
 }

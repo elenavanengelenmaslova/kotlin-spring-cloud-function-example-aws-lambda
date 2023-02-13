@@ -17,7 +17,7 @@ class InfrastructureJvmArm64Stack(scope: Construct, id: String, props: StackProp
             .description("Kotlin Lambda Spring Cloud Function")
             .handler("org.springframework.cloud.function.adapter.aws.FunctionInvoker")
             .runtime(Runtime.JAVA_11)
-            .code(Code.fromAsset("../build/dist/function.jar"))
+            .code(Code.fromAsset("../build/dist/function.zip"))
             .architecture(Architecture.ARM_64)
             .logRetention(RetentionDays.ONE_WEEK)
             .memorySize(512)
