@@ -1,6 +1,14 @@
-
 plugins {
+    kotlin("jvm") version "1.8.10"
     kotlin("plugin.spring") version "1.8.10"
+    id("org.springframework.boot") version "2.7.8"
+    id("io.spring.dependency-management") version "1.1.0"
+    id("org.springframework.boot.experimental.thin-launcher") version "1.0.28.RELEASE"
+}
+buildscript {
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.7.8")
+    }
 }
 
 dependencies {
@@ -12,7 +20,7 @@ dependencies {
     // https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-function-web
     implementation("org.springframework.cloud:spring-cloud-function-web:3.2.8")
     // https://mvnrepository.com/artifact/org.springframework.boot.experimental/spring-boot-thin-layout
-    implementation("org.springframework.boot.experimental:spring-boot-thin-layout:1.0.28.RELEASE")
+    //implementation("org.springframework.boot.experimental:spring-boot-thin-layout:1.0.28.RELEASE")
     // https://mvnrepository.com/artifact/com.google.code.gson/gson
     implementation("com.google.code.gson:gson:2.10.1")
     implementation("org.slf4j:slf4j-api:2.0.5")
@@ -36,14 +44,14 @@ repositories {
     mavenCentral()
 }
 
-tasks.register<Zip>("packageDistribution") {
+tasks.register<Jar>("packageDistribution") {
     from(tasks.compileKotlin)
     from(tasks.compileJava)
     from(tasks.processResources)
     into("lib") {
         from(configurations.runtimeClasspath)
     }
-    archiveFileName.set("function.zip")
+    archiveFileName.set("function.jar")
     destinationDirectory.set(file("${project.rootDir}/build/dist"))
     dependsOn(":example:build")
 }
