@@ -2,12 +2,11 @@ package com.example.lambda
 
 import com.google.gson.Gson
 import org.slf4j.LoggerFactory
+import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.context.annotation.Bean
-import org.springframework.context.annotation.Configuration
 import org.springframework.messaging.Message
 
-@Suppress("UNUSED")
-@Configuration
+@SpringBootApplication
 class KotlinLambda {
     private val logger = LoggerFactory.getLogger(this::class.java)
     private val gson = Gson()
