@@ -8,9 +8,9 @@ dependencies {
     implementation("com.amazonaws:aws-lambda-java-core:1.2.2")
     implementation("com.amazonaws:aws-lambda-java-events:3.11.0")
     // https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-function-adapter-aws
-    implementation("org.springframework.cloud:spring-cloud-function-adapter-aws:4.0.1")
+    implementation("org.springframework.cloud:spring-cloud-function-adapter-aws:3.2.8")
     // https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-function-web
-    implementation("org.springframework.cloud:spring-cloud-function-web:4.0.1")
+    implementation("org.springframework.cloud:spring-cloud-function-web:3.2.8")
     // https://mvnrepository.com/artifact/org.springframework.boot.experimental/spring-boot-thin-layout
     implementation("org.springframework.boot.experimental:spring-boot-thin-layout:1.0.28.RELEASE")
     // https://mvnrepository.com/artifact/com.google.code.gson/gson
