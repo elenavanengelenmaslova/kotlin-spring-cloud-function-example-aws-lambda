@@ -12,7 +12,7 @@ dependencies {
     // https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-function-web
     implementation("org.springframework.cloud:spring-cloud-function-web:4.0.1")
     // https://mvnrepository.com/artifact/org.springframework.boot.experimental/spring-boot-thin-layout
-    implementation("org.springframework.boot.experimental:spring-boot-thin-layout:1.0.29.RELEASE")
+    implementation("org.springframework.boot.experimental:spring-boot-thin-layout:1.0.28.RELEASE")
     // https://mvnrepository.com/artifact/com.google.code.gson/gson
     implementation("com.google.code.gson:gson:2.10.1")
     implementation("org.slf4j:slf4j-api:2.0.5")
