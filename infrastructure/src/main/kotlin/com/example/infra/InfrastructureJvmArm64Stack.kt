@@ -1,8 +1,7 @@
 package com.example.infra
 
-import software.amazon.awscdk.Duration
-import software.amazon.awscdk.Stack
-import software.amazon.awscdk.StackProps
+import software.amazon.awscdk.*
+import software.amazon.awscdk.services.dynamodb.Table
 import software.amazon.awscdk.services.lambda.Architecture
 import software.amazon.awscdk.services.lambda.Code
 import software.amazon.awscdk.services.lambda.Function
@@ -12,8 +11,9 @@ import software.constructs.Construct
 
 class InfrastructureJvmArm64Stack(scope: Construct, id: String, props: StackProps) : Stack(scope, id, props) {
     init {
-        val functionId = "lambdaStringCloudFunctionJvmARM64"
-        Function.Builder.create(this, functionId)
+        val productsTable = Table.fromTableArn(this, "dynamoTable", Fn.importValue("Products-Spring-Cloud-Function-ExampleTableArn"))
+        val functionId = "lambdaSpringCloudFunctionJvmARM64"
+        val function = Function.Builder.create(this, functionId)
             .description("Kotlin Lambda Spring Cloud Function JVM ARM 64")
             .handler("org.springframework.cloud.function.adapter.aws.FunctionInvoker")
             .runtime(Runtime.JAVA_11)
@@ -29,5 +29,15 @@ class InfrastructureJvmArm64Stack(scope: Construct, id: String, props: StackProp
             )
             .timeout(Duration.seconds(120))
             .build()
+
+        productsTable.grantReadData(function)
+
+        CfnOutput(
+            this, "${functionId}-fn-arn",
+            CfnOutputProps.builder()
+                .value(function.functionArn)
+                .description("The arn of the $functionId function")
+                .exportName("${functionId}FnArn").build()
+        )
     }
 }

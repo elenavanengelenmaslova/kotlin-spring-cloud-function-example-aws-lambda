@@ -8,12 +8,12 @@ import software.amazon.awscdk.services.lambda.Runtime
 import software.amazon.awscdk.services.logs.RetentionDays
 import software.constructs.Construct
 
-class InfrastructureJvmX86Stack(scope: Construct, id: String, props: StackProps) : Stack(scope, id, props) {
+class InfrastructureJvmX86C1Stack(scope: Construct, id: String, props: StackProps) : Stack(scope, id, props) {
     init {
         val productsTable = Table.fromTableArn(this, "dynamoTable", Fn.importValue("Products-Spring-Cloud-Function-ExampleTableArn"))
-        val functionId = "lambdaSpringCloudFunctionJvmX86"
+        val functionId = "lambdaSpringCloudFunctionJvmX86C1"
         val function = Function.Builder.create(this, functionId)
-            .description("Kotlin Lambda Spring Cloud Function JVM X86")
+            .description("Kotlin Lambda Spring Cloud Function JVM X86 C1")
             .handler("org.springframework.cloud.function.adapter.aws.FunctionInvoker")
             .runtime(Runtime.JAVA_11)
             .code(Code.fromAsset("../build/dist/function.jar"))
@@ -22,7 +22,8 @@ class InfrastructureJvmX86Stack(scope: Construct, id: String, props: StackProps)
             .environment(
                 mapOf(
                     "SPRING_CLOUD_FUNCTION_DEFINITION" to "handleRequest",
-                    "MAIN_CLASS" to "com.example.lambda.Application"
+                    "MAIN_CLASS" to "com.example.lambda.Application",
+                    "JAVA_TOOL_OPTIONS" to "-XX:+TieredCompilation -XX:TieredStopAtLevel=1"
                 )
             )
             .timeout(Duration.seconds(120))

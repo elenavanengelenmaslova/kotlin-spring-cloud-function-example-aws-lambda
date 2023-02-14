@@ -41,6 +41,26 @@ fun main() {
             .build()
     )
 
+    val stackNameJvmX86C1 = "Kotlin-Lambda-Spring-Cloud-Function-Jvm-X86-C1"
+    InfrastructureJvmX86C1Stack(
+        app, stackNameJvmX86C1,
+        StackProps.builder()
+            .stackName(stackNameJvmX86C1)
+            .env(environment)
+            .description("Kotlin Spring Cloud Function JVM X86 C1")
+            .build()
+    )
+
+    val stackNameJvmArm64C1 = "Kotlin-Lambda-Spring-Cloud-Function-Jvm-Arm64-C1"
+    InfrastructureJvmArm64C1Stack(
+        app, stackNameJvmArm64C1,
+        StackProps.builder()
+            .stackName(stackNameJvmArm64C1)
+            .env(environment)
+            .description("Kotlin Spring Cloud Function JVM ARM64 C1")
+            .build()
+    )
+
 //    val stackNameJvmSnapStart = "Kotlin-Lambda-Spring-Cloud-Function-Jvm-X86"
 //    InfrastructureJvmX86Stack(
 //        app, stackNameJvmX86,
