@@ -13,7 +13,7 @@ application {
 }
 
 tasks.named("run") {
-    dependsOn(":example:packageDistribution")
+    dependsOn(":example:build")
 }
 repositories {
     mavenCentral()
