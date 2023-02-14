@@ -41,15 +41,3 @@ configurations {
 repositories {
     mavenCentral()
 }
-
-tasks.register<Jar>("packageDistribution") {
-    from(tasks.compileKotlin)
-    from(tasks.compileJava)
-    from(tasks.processResources)
-    into("lib") {
-        from(configurations.runtimeClasspath)
-    }
-    archiveFileName.set("function.zip")
-    destinationDirectory.set(file("${project.rootDir}/build/dist"))
-    dependsOn(":example:build")
-}
