@@ -1,4 +1,5 @@
 plugins {
+    java
     kotlin("jvm") version "1.8.10"
     kotlin("plugin.spring") version "1.8.10"
     id("org.springframework.boot") version "2.7.8"
@@ -40,4 +41,15 @@ configurations {
 }
 repositories {
     mavenCentral()
+}
+
+tasks.bootJar {
+    from(tasks.compileKotlin)
+    from(tasks.compileJava)
+    from(tasks.processResources)
+    into("lib") {
+        from(configurations.runtimeClasspath)
+    }
+    archiveFileName.set("function.jar")
+    destinationDirectory.set(file("${project.rootDir}/build/dist"))
 }

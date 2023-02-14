@@ -51,7 +51,7 @@ jobs:
           # Artifact name
           name: LambdaArtifacts
           # A file, directory or wildcard pattern that describes what to upload
-          path: software/example/build/libs/*.jar
+          path: build/dist/*.jar
           # The desired behavior if no files are found using the provided path.
           if-no-files-found: error
           # Duration after which artifact will expire in days. 0 means using default retention.
@@ -78,7 +78,7 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: LambdaArtifacts
-          path: software/example/build/libs/
+          path: build/dist/
 
       - name: DEPLOY synthesize & deploy
         run: |
