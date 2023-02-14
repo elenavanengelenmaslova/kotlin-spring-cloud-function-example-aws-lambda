@@ -61,16 +61,29 @@ fun main() {
             .build()
     )
 
-//    val stackNameJvmSnapStart = "Kotlin-Lambda-Spring-Cloud-Function-Jvm-X86"
-//    InfrastructureJvmX86Stack(
-//        app, stackNameJvmX86,
-//        StackProps.builder()
-//            .stackName(stackNameJvmX86)
-//            .env(environment)
-//            .description("Kotlin Spring Cloud Function JVM X86")
-//            .build()
-//    )
+    //SnapStart only
+    val stackNameSnapStartOnly = "Kotlin-Lambda-Spring-Cloud-Function-SnapStart-Only"
+    InfrastructureSnapStartOnlyStack(
+        app, stackNameSnapStartOnly,
+        StackProps.builder()
+            .stackName(stackNameSnapStartOnly)
+            .env(environment)
+            .description("Kotlin Spring Cloud Function JVM X86 SnapStart Only")
+            .build()
+    )
 
+    //SnapStart C1
+    val stackNameSnapStartC1 = "Kotlin-Lambda-Spring-Cloud-Function-SnapStart-C1"
+    InfrastructureSnapStartC1Stack(
+        app, stackNameSnapStartC1,
+        StackProps.builder()
+            .stackName(stackNameSnapStartC1)
+            .env(environment)
+            .description("Kotlin Spring Cloud Function JVM X86 SnapStart C1")
+            .build()
+    )
+    //SnapStart priming
+    //SnapStart priming C1
     //Native X86
     //Native ARM 64
     app.synth()
