@@ -23,7 +23,8 @@ class InfrastructureJvmArm64Stack(scope: Construct, id: String, props: StackProp
             .memorySize(512)
             .environment(
                 mapOf(
-                    "SPRING_CLOUD_FUNCTION_DEFINITION" to "handleRequest"
+                    "SPRING_CLOUD_FUNCTION_DEFINITION" to "handleRequest",
+                    "MAIN_CLASS" to "com.example.lambda.Application"
                 )
             )
             .timeout(Duration.seconds(120))
