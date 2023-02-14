@@ -5,9 +5,10 @@ import org.slf4j.LoggerFactory
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 import org.springframework.context.annotation.Bean
+import org.springframework.context.annotation.Configuration
 import org.springframework.messaging.Message
 
-@SpringBootApplication
+@Configuration
 class KotlinLambda {
     private val logger = LoggerFactory.getLogger(this::class.java)
     private val gson = Gson()
@@ -19,7 +20,4 @@ class KotlinLambda {
             "Hello world!"
         }
     }
-}
-fun main(args: Array<String>) {
-    runApplication<KotlinLambda>(*args)
 }
