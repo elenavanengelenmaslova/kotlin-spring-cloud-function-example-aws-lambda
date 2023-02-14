@@ -84,4 +84,47 @@ jobs:
         run: |
           cd ${GITHUB_WORKSPACE}/infrastructure
           npm install -g aws-cdk
-          cdk deploy --require-approval never --all
+          cdk deploy -vv --require-approval never Kotlin-Lambda-Spring-Cloud-Function-table --exclusively
+
+  deploy-app:
+    runs-on: ubuntu-latest
+    needs: [ build, deploy-table ]
+    strategy:
+      matrix:
+        config:
+          [
+            {
+              component-name: "Kotlin Lambda Spring Cloud Function / Jvm X86 ",
+              stack-name: "Kotlin-Lambda-Spring-Cloud-Function-Jvm-X86",
+            },
+            {
+              component-name: "Kotlin Lambda Spring Cloud Function / JVM Arm64",
+              stack-name: "Kotlin-Lambda-Spring-Cloud-Function-Jvm-Arm64",
+            },
+          ]
+    name: ${{ matrix.config.component-name }} deployment
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Download Artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: LambdaArtifacts
+          path: build/dist/
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "14"
+      - name: Configure aws credentials
+        uses: aws-actions/configure-aws-credentials@master
+        with:
+          aws-access-key-id: ${{ secrets.aws_access_key }}
+          aws-secret-access-key: ${{ secrets.aws_secret_key }}
+          aws-region: ${{ inputs.aws_region }}
+
+      - name: DEPLOY synthesize & deploy
+        run: |
+          cd ${GITHUB_WORKSPACE}/infrastructure
+          npm install -g aws-cdk
+          cdk deploy -vv --require-approval never ${{ matrix.config.stack-name }} --exclusively
