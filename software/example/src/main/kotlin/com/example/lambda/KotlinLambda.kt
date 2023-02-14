@@ -2,8 +2,6 @@ package com.example.lambda
 
 import com.google.gson.Gson
 import org.slf4j.LoggerFactory
-import org.springframework.boot.autoconfigure.SpringBootApplication
-import org.springframework.boot.runApplication
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.messaging.Message
@@ -14,9 +12,9 @@ class KotlinLambda {
     private val gson = Gson()
 
     @Bean
-    fun handleRequest(): (Message<Any>) -> String {
+    fun handleRequest(): (Message<Map<String, String>>) -> String {
         return {
-            logger.info(gson.toJson(it))
+            logger.info(gson.toJson(it.payload))
             "Hello world!"
         }
     }
