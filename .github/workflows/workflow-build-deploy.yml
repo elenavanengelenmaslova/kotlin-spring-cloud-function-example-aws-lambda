@@ -101,6 +101,14 @@ jobs:
               component-name: "Kotlin Lambda Spring Cloud Function / JVM Arm64",
               stack-name: "Kotlin-Lambda-Spring-Cloud-Function-Jvm-Arm64",
             },
+            {
+              component-name: "Kotlin Lambda Spring Cloud Function / JVM X86 C1",
+              stack-name: "Kotlin-Lambda-Spring-Cloud-Function-Jvm-X86-C1",
+            },
+            {
+              component-name: "Kotlin Lambda Spring Cloud Function / JVM Arm64 C1",
+              stack-name: "Kotlin-Lambda-Spring-Cloud-Function-Jvm-Arm64-C1",
+            },
           ]
     name: ${{ matrix.config.component-name }} deployment
 
