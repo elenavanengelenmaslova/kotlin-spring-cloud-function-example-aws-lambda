@@ -54,3 +54,7 @@ tasks.bootJar {
     archiveFileName.set("function.jar")
     destinationDirectory.set(file("${project.rootDir}/build/dist"))
 }
+
+springBoot {
+    mainClass.set("com.example.lambda.Application")
+}
