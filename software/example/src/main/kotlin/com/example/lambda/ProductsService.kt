@@ -1,6 +1,6 @@
 package com.example.lambda
 
-import nl.vintik.sample.model.Product
+import com.example.lambda.model.Product
 import org.springframework.stereotype.Service
 import software.amazon.awssdk.enhanced.dynamodb.DynamoDbAsyncTable
 import software.amazon.awssdk.enhanced.dynamodb.Key

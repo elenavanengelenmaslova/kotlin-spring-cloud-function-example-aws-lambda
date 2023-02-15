@@ -1,7 +1,7 @@
 package com.example.lambda
 
-import nl.vintik.sample.model.Product
-import nl.vintik.sample.model.ProductRequest
+import com.example.lambda.model.Product
+import com.example.lambda.model.ProductRequest
 import org.slf4j.LoggerFactory
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration

@@ -1,3 +1,3 @@
-package nl.vintik.sample.model
+package com.example.lambda.model
 
 data class ProductRequest (var id: String = "")
