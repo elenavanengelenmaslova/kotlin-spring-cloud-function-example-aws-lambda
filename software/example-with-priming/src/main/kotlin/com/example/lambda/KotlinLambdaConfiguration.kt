@@ -27,8 +27,11 @@ class KotlinLambdaConfiguration {
 
     @Bean
     fun productTable(): DynamoDbAsyncTable<Product> {
+        logger.info("start with product table")
+        logger.info("creating schema from class")
         val schema = TableSchema.fromClass(Product::class.java)
 
+        logger.info("creating dynamoDB client")
         val dynamoDbAsyncClient = DynamoDbEnhancedAsyncClient.builder()
             .dynamoDbClient(
                 DynamoDbAsyncClient.builder()
@@ -36,9 +39,12 @@ class KotlinLambdaConfiguration {
                     .build()
             ).build()
 
-        return dynamoDbAsyncClient.table(
+        logger.info("creating dynamoDB table")
+        val table = dynamoDbAsyncClient.table(
             Product.TABLE_NAME,
             schema
         )
+        logger.info("finished with product table")
+        return table
     }
 }

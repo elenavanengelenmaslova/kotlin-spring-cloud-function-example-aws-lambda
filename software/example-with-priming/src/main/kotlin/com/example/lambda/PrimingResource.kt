@@ -15,8 +15,9 @@ class PrimingResource(private val requestHandler: (Message<ProductRequest>) -> P
     private val logger = LoggerFactory.getLogger(this::class.java)
 
     init {
-        //register priming
+        logger.info("start register priming")
         Core.getGlobalContext().register(this)
+        logger.info("finished register priming")
     }
 
     override fun beforeCheckpoint(context: Context<out Resource>?) {
@@ -27,6 +28,7 @@ class PrimingResource(private val requestHandler: (Message<ProductRequest>) -> P
                 override fun getHeaders(): MessageHeaders = MessageHeaders(emptyMap())
             })
         }
+        logger.info("finished beforeCheckpoint hook")
     }
 
     override fun afterRestore(context: Context<out Resource>?) {
