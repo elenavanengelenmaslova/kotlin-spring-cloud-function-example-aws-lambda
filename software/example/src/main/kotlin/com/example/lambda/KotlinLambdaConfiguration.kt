@@ -1,5 +1,6 @@
 package com.example.lambda
 
+import com.example.lambda.controller.ProductsController
 import com.example.lambda.model.Product
 import com.example.lambda.model.ProductRequest
 import org.slf4j.LoggerFactory

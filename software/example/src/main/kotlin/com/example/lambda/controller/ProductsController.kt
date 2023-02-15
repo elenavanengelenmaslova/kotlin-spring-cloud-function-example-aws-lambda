@@ -1,5 +1,6 @@
-package com.example.lambda
+package com.example.lambda.controller
 
+import com.example.lambda.service.ProductsService
 import org.springframework.stereotype.Component
 
 @Component

@@ -1,4 +1,4 @@
-package com.example.lambda
+package com.example.lambda.service
 
 import com.example.lambda.model.Product
 import org.springframework.stereotype.Service
