@@ -12,7 +12,7 @@ data class Product(
 ) {
 
     companion object {
-        const val TABLE_NAME = "Products-SnapStart-Example"
+        const val TABLE_NAME = "Products-Spring-Cloud-Function-Example"
     }
 
 }
