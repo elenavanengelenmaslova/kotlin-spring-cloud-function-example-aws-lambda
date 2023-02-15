@@ -12,6 +12,7 @@ buildscript {
 
 dependencies {
     implementation("software.amazon.awssdk:dynamodb-enhanced:2.20.3")
+    implementation("software.amazon.awssdk:aws-crt-client:2.20.3")
     implementation("com.amazonaws:aws-lambda-java-core:1.2.2")
     implementation("com.amazonaws:aws-lambda-java-events:3.11.0")
     // https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-function-adapter-aws

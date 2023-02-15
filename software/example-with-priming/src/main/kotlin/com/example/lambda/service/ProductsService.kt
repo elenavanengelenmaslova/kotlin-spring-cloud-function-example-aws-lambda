@@ -8,7 +8,7 @@ import software.amazon.awssdk.enhanced.dynamodb.DynamoDbAsyncTable
 import software.amazon.awssdk.enhanced.dynamodb.Key
 
 @Service
-class ProductsService(){//private val productTable: DynamoDbAsyncTable<Product>) {
+class ProductsService(private val productTable: DynamoDbAsyncTable<Product>) {
     private val logger = LoggerFactory.getLogger(this::class.java)
     fun findProduct(id: String): Product? {
         logger.info("about to get item with id $id")

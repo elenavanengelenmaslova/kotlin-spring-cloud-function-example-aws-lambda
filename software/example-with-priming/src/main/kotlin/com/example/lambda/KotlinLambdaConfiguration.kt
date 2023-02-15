@@ -10,6 +10,7 @@ import org.springframework.messaging.Message
 import software.amazon.awssdk.enhanced.dynamodb.DynamoDbAsyncTable
 import software.amazon.awssdk.enhanced.dynamodb.DynamoDbEnhancedAsyncClient
 import software.amazon.awssdk.enhanced.dynamodb.TableSchema
+import software.amazon.awssdk.http.crt.AwsCrtAsyncHttpClient
 import software.amazon.awssdk.regions.Region
 import software.amazon.awssdk.services.dynamodb.DynamoDbAsyncClient
 
@@ -25,24 +26,22 @@ class KotlinLambdaConfiguration {
         }
     }
 
-//    @Bean
-//    fun productTable(): DynamoDbAsyncTable<Product> {
-//        return table
-//    }
-
-    companion object {
+    @Bean
+    fun productTable(): DynamoDbAsyncTable<Product> {
         val schema = TableSchema.fromClass(Product::class.java)
 
         val dynamoDbAsyncClient = DynamoDbEnhancedAsyncClient.builder()
             .dynamoDbClient(
                 DynamoDbAsyncClient.builder()
                     .region(Region.EU_WEST_1)
+                    .httpClientBuilder(AwsCrtAsyncHttpClient.builder())
                     .build()
             ).build()
 
-        val table = dynamoDbAsyncClient.table(
+        return dynamoDbAsyncClient.table(
             Product.TABLE_NAME,
             schema
         )
     }
+
 }
