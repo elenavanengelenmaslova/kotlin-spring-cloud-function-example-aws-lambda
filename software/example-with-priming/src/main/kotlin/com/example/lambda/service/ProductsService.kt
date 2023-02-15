@@ -1,6 +1,5 @@
 package com.example.lambda.service
 
-import com.example.lambda.KotlinLambdaConfiguration.Companion.table
 import com.example.lambda.model.Product
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
@@ -12,7 +11,7 @@ class ProductsService(private val productTable: DynamoDbAsyncTable<Product>) {
     private val logger = LoggerFactory.getLogger(this::class.java)
     fun findProduct(id: String): Product? {
         logger.info("about to get item with id $id")
-        val item = table.getItem(
+        val item = productTable.getItem(
             Key
                 .builder()
                 .partitionValue(id)
