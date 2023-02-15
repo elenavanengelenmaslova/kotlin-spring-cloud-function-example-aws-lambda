@@ -1,8 +1,14 @@
 # kotlin-spring-cloud-function-example-aws-lambda
-Spring cloud function in Kotlin example for AWS Lambda
+Spring cloud function in Kotlin example for AWS Lambda. Includes examples of different set-ups:
+* X86
+* ARM64
+* X86 + C1 (tiered compilation optimisation)
+* ARM64 + C1 (tiered compilation optimisation)
+* SnapStart 
+* SnapStart + C1 (tiered compilation optimisation)
 
 ## Infrastructure
-Kotlin Lambda Example contains 1 CDK stacks with a HelloWorld Kotlin/JVM lambda on ARM64 architecture
+Kotlin Lambda Example contains a numbers of CDK stacks with a HelloWorld Kotlin/JVM lambda, one CDK stack for each of the set-up examples.
 
 ## Build & Deployment from local machine
 ### Build kotlin app

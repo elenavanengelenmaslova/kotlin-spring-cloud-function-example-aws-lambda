@@ -82,9 +82,9 @@ fun main() {
             .description("Kotlin Spring Cloud Function JVM X86 SnapStart C1")
             .build()
     )
-    //SnapStart priming
-    //SnapStart priming C1
-    //Native X86
-    //Native ARM 64
+    //TODO: SnapStart + priming
+    //TODO: SnapStart + priming C1
+    //TODO: Spring Native X86
+    //TODO: Spring Native ARM 64
     app.synth()
 }
