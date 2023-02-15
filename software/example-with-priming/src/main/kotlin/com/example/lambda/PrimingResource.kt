@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration
 import org.springframework.messaging.Message
 import org.springframework.messaging.MessageHeaders
 
-@Configuration
+//@Configuration
 class PrimingResource(private val requestHandler: (Message<ProductRequest>) -> Product?) : Resource {
     private val logger = LoggerFactory.getLogger(this::class.java)
 
