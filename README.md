@@ -56,3 +56,4 @@ Go to Lambda in console, find lambda variant to be tested and test that lambda w
   "id": "1"
 }
 ```
+You should see the product json printed in the execution log (Execution result in the console)
