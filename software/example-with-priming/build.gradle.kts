@@ -18,6 +18,7 @@ dependencies {
     implementation("org.springframework.cloud:spring-cloud-function-adapter-aws:3.2.8")
     // https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-function-web
     implementation("org.springframework.cloud:spring-cloud-function-web:3.2.8")
+    implementation("io.github.crac:org-crac:0.1.3")
     implementation("org.slf4j:slf4j-api:2.0.5")
     implementation("org.slf4j:slf4j-simple:2.0.5")
     // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test
@@ -48,6 +49,6 @@ tasks.bootJar {
     into("lib") {
         from(configurations.runtimeClasspath)
     }
-    archiveFileName.set("function.jar")
+    archiveFileName.set("function-with-priming.jar")
     destinationDirectory.set(file("${project.rootDir}/build/dist"))
 }

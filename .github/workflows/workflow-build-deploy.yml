@@ -117,6 +117,14 @@ jobs:
               component-name: "Kotlin Lambda Spring Cloud Function / JVM X86 SnapStart C1",
               stack-name: "Kotlin-Lambda-Spring-Cloud-Function-SnapStart-C1",
             },
+            {
+              component-name: "Kotlin Lambda Spring Cloud Function / JVM X86 SnapStart With Priming",
+              stack-name: "Kotlin-Lambda-Spring-Cloud-Function-SnapStart-With-Priming",
+            },
+            {
+              component-name: "Kotlin Lambda Spring Cloud Function / JVM X86 SnapStart C1 With Priming",
+              stack-name: "Kotlin-Lambda-Spring-Cloud-Function-SnapStart-C1-With-Priming",
+            },
           ]
     name: ${{ matrix.config.component-name }} deployment
 

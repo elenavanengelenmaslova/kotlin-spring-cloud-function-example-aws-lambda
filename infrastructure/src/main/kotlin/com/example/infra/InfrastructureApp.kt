@@ -82,8 +82,27 @@ fun main() {
             .description("Kotlin Spring Cloud Function JVM X86 SnapStart C1")
             .build()
     )
-    //TODO: SnapStart + priming
-    //TODO: SnapStart + priming C1
+    //SnapStart + priming
+    val stackNameSnapStartWithPriming = "Kotlin-Lambda-Spring-Cloud-Function-SnapStart-With-Priming"
+    InfrastructureSnapStartWithPriming(
+        app, stackNameSnapStartWithPriming,
+        StackProps.builder()
+            .stackName(stackNameSnapStartWithPriming)
+            .env(environment)
+            .description("Kotlin Spring Cloud Function JVM X86 SnapStart With Priming")
+            .build()
+    )
+    //SnapStart + priming C1
+    val stackNameSnapStartC1WithPriming = "Kotlin-Lambda-Spring-Cloud-Function-SnapStart-C1-With-Priming"
+    InfrastructureSnapStartC1WithPriming(
+        app, stackNameSnapStartC1WithPriming,
+        StackProps.builder()
+            .stackName(stackNameSnapStartC1WithPriming)
+            .env(environment)
+            .description("Kotlin Spring Cloud Function JVM X86 SnapStart C1 With Priming")
+            .build()
+    )
+
     //TODO: Spring Native X86
     //TODO: Spring Native ARM 64
     app.synth()

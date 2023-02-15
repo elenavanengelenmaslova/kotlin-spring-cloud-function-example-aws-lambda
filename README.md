@@ -6,6 +6,8 @@ Spring cloud function in Kotlin example for AWS Lambda. Includes examples of dif
 * ARM64 + C1 (tiered compilation optimisation)
 * SnapStart 
 * SnapStart + C1 (tiered compilation optimisation)
+* SnapStart + Priming (priming with CRaC hooks)
+* SnapStart + C1 + Priming (tiered compilation optimisation and priming with CRaC hooks)
 
 ## Infrastructure
 Kotlin Lambda Example contains a numbers of CDK stacks with a HelloWorld Kotlin/JVM lambda, one CDK stack for each of the set-up examples.
