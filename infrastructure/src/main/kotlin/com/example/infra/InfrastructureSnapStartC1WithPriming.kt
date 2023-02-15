@@ -25,7 +25,9 @@ class InfrastructureSnapStartC1WithPriming(scope: Construct, id: String, props: 
                     "SPRING_CLOUD_FUNCTION_DEFINITION" to "handleRequest",
                     "MAIN_CLASS" to "com.example.lambda.Application",
                     // Ensure lambda version is updated with latest lambda code
-                    "CodeVersionString" to System.getenv("BUILD_NO")
+                    "CodeVersionString" to System.getenv("BUILD_NO"),
+                    //Stop at level 1 (C1 compiler)
+                    "JAVA_TOOL_OPTIONS" to "-XX:+TieredCompilation -XX:TieredStopAtLevel=1"
                 )
             )
             .timeout(Duration.seconds(120))
