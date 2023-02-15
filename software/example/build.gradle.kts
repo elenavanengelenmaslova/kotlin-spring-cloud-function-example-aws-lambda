@@ -19,8 +19,6 @@ dependencies {
     implementation("org.springframework.cloud:spring-cloud-function-adapter-aws:3.2.8")
     // https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-function-web
     implementation("org.springframework.cloud:spring-cloud-function-web:3.2.8")
-    // https://mvnrepository.com/artifact/com.google.code.gson/gson
-    implementation("com.google.code.gson:gson:2.10.1")
     implementation("org.slf4j:slf4j-api:2.0.5")
     implementation("org.slf4j:slf4j-simple:2.0.5")
     // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test
