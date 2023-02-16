@@ -13,7 +13,10 @@ import org.springframework.messaging.Message
 import org.springframework.messaging.MessageHeaders
 
 @Configuration
-class PrimingResource(private val requestHandler: (Message<ProductRequest>) -> Product?, private val service: ProductsService, private val applicationContext: ConfigurableApplicationContext
+class PrimingResource(
+    private val requestHandler: (Message<ProductRequest>) -> Product?,
+    private val service: ProductsService,
+    private val applicationContext: ConfigurableApplicationContext
 ) : Resource {
     private val logger = LoggerFactory.getLogger(this::class.java)
 
@@ -25,18 +28,20 @@ class PrimingResource(private val requestHandler: (Message<ProductRequest>) -> P
         logger.info("beforeCheckpoint hook")
         kotlin.runCatching {
             service.findProduct("i dont exist")
-        }
-        runCatching {
-            requestHandler.invoke(object: Message<ProductRequest>{
-                override fun getPayload() = ProductRequest("1")
-                override fun getHeaders(): MessageHeaders = MessageHeaders(emptyMap())
-            })
-        }
+        }.onFailure { logger.error(it.message) }
+//        runCatching {
+//            requestHandler.invoke(object: Message<ProductRequest>{
+//                override fun getPayload() = ProductRequest("1")
+//                override fun getHeaders(): MessageHeaders = MessageHeaders(emptyMap())
+//            })
+//        }
         logger.info("finished beforeCheckpoint hook")
     }
 
     override fun afterRestore(context: Context<out Resource>?) {
-        applicationContext.refresh()
+        kotlin.runCatching {
+            applicationContext.refresh()
+        }.onFailure { logger.error(it.message) }
         logger.info("afterRestore hook")
     }
 }
