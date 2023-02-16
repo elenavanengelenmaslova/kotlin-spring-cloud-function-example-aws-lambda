@@ -22,13 +22,13 @@ class PrimingResource(private val requestHandler: (Message<ProductRequest>) -> P
 
     override fun beforeCheckpoint(context: Context<out Resource>?) {
         logger.info("beforeCheckpoint hook")
-        runCatching {
-            requestHandler.invoke(object: Message<ProductRequest>{
-                override fun getPayload() = ProductRequest("1")
-                override fun getHeaders(): MessageHeaders = MessageHeaders(emptyMap())
-            })
-        }
-        logger.info("finished beforeCheckpoint hook")
+//        runCatching {
+//            requestHandler.invoke(object: Message<ProductRequest>{
+//                override fun getPayload() = ProductRequest("1")
+//                override fun getHeaders(): MessageHeaders = MessageHeaders(emptyMap())
+//            })
+//        }
+//        logger.info("finished beforeCheckpoint hook")
     }
 
     override fun afterRestore(context: Context<out Resource>?) {
