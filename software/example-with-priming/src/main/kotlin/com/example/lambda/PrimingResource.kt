@@ -1,5 +1,6 @@
 package com.example.lambda
 
+import com.example.lambda.controller.ProductsController
 import com.example.lambda.model.Product
 import com.example.lambda.model.ProductRequest
 import com.example.lambda.service.ProductsService
@@ -15,8 +16,7 @@ import org.springframework.messaging.MessageHeaders
 @Configuration
 class PrimingResource(
     private val requestHandler: (Message<ProductRequest>) -> Product?,
-    private val service: ProductsService,
-    private val applicationContext: ConfigurableApplicationContext
+    private val productsController: ProductsController
 ) : Resource {
     private val logger = LoggerFactory.getLogger(this::class.java)
 
@@ -25,9 +25,9 @@ class PrimingResource(
     }
 
     override fun beforeCheckpoint(context: Context<out Resource>?) {
-        logger.info("beforeCheckpoint hook")
+        logger.info("started beforeCheckpoint hook")
         kotlin.runCatching {
-            service.findProduct("i dont exist")
+            productsController.find("i dont exist")
         }.onFailure { logger.error(it.message) }
 //        runCatching {
 //            requestHandler.invoke(object: Message<ProductRequest>{
@@ -39,9 +39,6 @@ class PrimingResource(
     }
 
     override fun afterRestore(context: Context<out Resource>?) {
-        kotlin.runCatching {
-            applicationContext.refresh()
-        }.onFailure { logger.error(it.message) }
         logger.info("afterRestore hook")
     }
 }
