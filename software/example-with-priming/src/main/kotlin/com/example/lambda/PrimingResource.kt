@@ -33,5 +33,12 @@ class PrimingResource(private val requestHandler: (Message<ProductRequest>) -> P
 
     override fun afterRestore(context: Context<out Resource>?) {
         logger.info("afterRestore hook")
+        runCatching {
+            requestHandler.invoke(object: Message<ProductRequest>{
+                override fun getPayload() = ProductRequest("i dont exist")
+                override fun getHeaders(): MessageHeaders = MessageHeaders(emptyMap())
+            })
+        }
+        logger.info("finished afterRestore hook")
     }
 }

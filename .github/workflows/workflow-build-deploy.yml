@@ -93,10 +93,10 @@ jobs:
       matrix:
         config:
           [
-            {
-              component-name: "Kotlin Lambda Spring Cloud Function / Jvm X86 ",
-              stack-name: "Kotlin-Lambda-Spring-Cloud-Function-Jvm-X86",
-            },
+#            {
+#              component-name: "Kotlin Lambda Spring Cloud Function / Jvm X86 ",
+#              stack-name: "Kotlin-Lambda-Spring-Cloud-Function-Jvm-X86",
+#            },
 #            {
 #              component-name: "Kotlin Lambda Spring Cloud Function / JVM Arm64",
 #              stack-name: "Kotlin-Lambda-Spring-Cloud-Function-Jvm-Arm64",
@@ -109,10 +109,10 @@ jobs:
 #              component-name: "Kotlin Lambda Spring Cloud Function / JVM Arm64 C1",
 #              stack-name: "Kotlin-Lambda-Spring-Cloud-Function-Jvm-Arm64-C1",
 #            },
-            {
-              component-name: "Kotlin Lambda Spring Cloud Function / JVM X86 SnapStart Only",
-              stack-name: "Kotlin-Lambda-Spring-Cloud-Function-SnapStart-Only",
-            },
+#            {
+#              component-name: "Kotlin Lambda Spring Cloud Function / JVM X86 SnapStart Only",
+#              stack-name: "Kotlin-Lambda-Spring-Cloud-Function-SnapStart-Only",
+#            },
 #            {
 #              component-name: "Kotlin Lambda Spring Cloud Function / JVM X86 SnapStart C1",
 #              stack-name: "Kotlin-Lambda-Spring-Cloud-Function-SnapStart-C1",

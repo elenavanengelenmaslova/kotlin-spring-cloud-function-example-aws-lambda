@@ -7,11 +7,11 @@ import org.slf4j.LoggerFactory
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.messaging.Message
-import software.amazon.awssdk.enhanced.dynamodb.DynamoDbEnhancedClient
-import software.amazon.awssdk.enhanced.dynamodb.DynamoDbTable
+import software.amazon.awssdk.enhanced.dynamodb.DynamoDbAsyncTable
+import software.amazon.awssdk.enhanced.dynamodb.DynamoDbEnhancedAsyncClient
 import software.amazon.awssdk.enhanced.dynamodb.TableSchema
 import software.amazon.awssdk.regions.Region
-import software.amazon.awssdk.services.dynamodb.DynamoDbClient
+import software.amazon.awssdk.services.dynamodb.DynamoDbAsyncClient
 
 @Configuration
 class KotlinLambdaConfiguration {
@@ -26,12 +26,12 @@ class KotlinLambdaConfiguration {
     }
 
     @Bean
-    fun productTable(): DynamoDbTable<Product> {
+    fun productTable(): DynamoDbAsyncTable<Product> {
         val schema = TableSchema.fromClass(Product::class.java)
 
-        val dynamoDbAsyncClient = DynamoDbEnhancedClient.builder()
+        val dynamoDbAsyncClient = DynamoDbEnhancedAsyncClient.builder()
             .dynamoDbClient(
-                DynamoDbClient.builder()
+                DynamoDbAsyncClient.builder()
                     .region(Region.EU_WEST_1)
                     .build()
             ).build()
