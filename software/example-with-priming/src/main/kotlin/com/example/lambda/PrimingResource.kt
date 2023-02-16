@@ -2,6 +2,7 @@ package com.example.lambda
 
 import com.example.lambda.model.Product
 import com.example.lambda.model.ProductRequest
+import com.example.lambda.service.ProductsService
 import org.crac.Context
 import org.crac.Core
 import org.crac.Resource
@@ -11,7 +12,7 @@ import org.springframework.messaging.Message
 import org.springframework.messaging.MessageHeaders
 
 @Configuration
-class PrimingResource(private val requestHandler: (Message<ProductRequest>) -> Product?) : Resource {
+class PrimingResource(private val requestHandler: (Message<ProductRequest>) -> Product?, private val service: ProductsService) : Resource {
     private val logger = LoggerFactory.getLogger(this::class.java)
 
     init {
@@ -22,6 +23,9 @@ class PrimingResource(private val requestHandler: (Message<ProductRequest>) -> P
 
     override fun beforeCheckpoint(context: Context<out Resource>?) {
         logger.info("beforeCheckpoint hook")
+        kotlin.runCatching {
+            service.findProduct("i dont exist")
+        }
 //        runCatching {
 //            requestHandler.invoke(object: Message<ProductRequest>{
 //                override fun getPayload() = ProductRequest("1")
