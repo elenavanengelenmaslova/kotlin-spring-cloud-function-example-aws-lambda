@@ -12,6 +12,8 @@ include(":example")
 project(":example").projectDir = file("software/example")
 include(":example-with-priming")
 project(":example-with-priming").projectDir = file("software/example-with-priming")
+include(":example-native")
+project(":example-native").projectDir = file("software/example-native")
 
 include(":infrastructure")
 project(":infrastructure").projectDir = file("infrastructure")

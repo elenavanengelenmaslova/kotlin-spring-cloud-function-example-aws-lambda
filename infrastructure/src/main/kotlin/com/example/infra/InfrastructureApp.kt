@@ -103,7 +103,16 @@ fun main() {
             .build()
     )
 
-    //TODO: Spring Native X86
+    //TODO: Spring Native X86, now other packaging test..
+    val stackNameNativeX86 = "Kotlin-Lambda-Spring-Cloud-Function-Native-X86"
+    InfrastructureNativeX86Stack(
+        app, stackNameNativeX86,
+        StackProps.builder()
+            .stackName(stackNameNativeX86)
+            .env(environment)
+            .description("Kotlin Spring Cloud Function Native X86")
+            .build()
+    )
     //TODO: Spring Native ARM 64
     app.synth()
 }
