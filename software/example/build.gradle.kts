@@ -2,7 +2,6 @@ plugins {
     kotlin("plugin.spring") version "1.8.10"
     id("org.springframework.boot") version "2.7.8"
     id("io.spring.dependency-management") version "1.1.0"
-    id("org.springframework.boot.experimental.thin-launcher") version "1.0.28.RELEASE"
 }
 buildscript {
     dependencies {
@@ -48,6 +47,10 @@ tasks.bootJar {
     into("lib") {
         from(configurations.runtimeClasspath)
     }
+    dependencies{
+        exclude("org.springframework.cloud:spring-cloud-function-web:2.7.8")
+    }
+
     archiveFileName.set("function.jar")
     destinationDirectory.set(file("${project.rootDir}/build/dist"))
 }

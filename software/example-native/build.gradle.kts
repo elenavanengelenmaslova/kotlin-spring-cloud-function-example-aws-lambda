@@ -38,6 +38,9 @@ repositories {
 tasks.shadowJar {
     archiveFileName.set("function-native.jar")
     destinationDirectory.set(file("${project.rootDir}/build/dist"))
+    dependencies {
+        exclude(dependency("org.springframework.cloud:spring-cloud-function-web:2.7.8"))
+    }
     mergeServiceFiles()
     append("META-INF/spring.handlers")
     append("META-INF/spring.schemas")
@@ -52,17 +55,6 @@ tasks.shadowJar {
         attributes(mapOf("Main-Class" to "com.example.lambda.Application"))
     }
 }
-//tasks.bootJar {
-//    from(tasks.compileKotlin)
-//    from(tasks.compileJava)
-//    from(tasks.processResources)
-//    into("lib") {
-//        from(configurations.runtimeClasspath)
-//    }
-//    archiveFileName.set("function.jar")
-//    destinationDirectory.set(file("${project.rootDir}/build/dist"))
-//}
-
 
 tasks {
     build {
