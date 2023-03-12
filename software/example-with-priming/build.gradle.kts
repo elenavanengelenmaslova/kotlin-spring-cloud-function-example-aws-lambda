@@ -2,7 +2,6 @@ plugins {
     kotlin("plugin.spring") version "1.8.10"
     id("org.springframework.boot") version "2.7.8"
     id("io.spring.dependency-management") version "1.1.0"
-    id("org.springframework.boot.experimental.thin-launcher") version "1.0.28.RELEASE"
 }
 buildscript {
     dependencies {
