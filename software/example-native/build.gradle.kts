@@ -1,14 +1,14 @@
 plugins {
-    kotlin("plugin.spring") version "1.8.10"
+    kotlin("plugin.spring")
     id("org.springframework.boot") version "2.7.8"
     id("com.github.johnrengelman.shadow") version "7.0.0"
     id("io.spring.dependency-management") version "1.1.0"
 }
 
 dependencies {
-    implementation("software.amazon.awssdk:dynamodb-enhanced:2.18.41")
+    implementation("software.amazon.awssdk:dynamodb-enhanced:2.20.26")
     implementation("com.amazonaws:aws-lambda-java-core:1.2.2")
-    implementation("com.amazonaws:aws-lambda-java-events:3.11.0")
+    implementation("com.amazonaws:aws-lambda-java-events:3.11.1")
     // https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-function-adapter-aws
     implementation("org.springframework.cloud:spring-cloud-function-adapter-aws:3.2.8")
     // https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-function-web
@@ -18,10 +18,10 @@ dependencies {
     // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5:1.5.31")
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.9.0")
-    testImplementation("org.junit.jupiter:junit-jupiter-engine:5.9.0")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.9.2")
+    testImplementation("org.junit.jupiter:junit-jupiter-engine:5.9.2")
     testImplementation("org.mockito.kotlin:mockito-kotlin:4.1.0")
-    testImplementation("org.mockito:mockito-junit-jupiter:4.8.0")
+    testImplementation("org.mockito:mockito-junit-jupiter:5.2.0")
     testImplementation("org.junit.jupiter:junit-jupiter:5.7.1")
     testImplementation("org.testcontainers:junit-jupiter:1.17.6")
 }
