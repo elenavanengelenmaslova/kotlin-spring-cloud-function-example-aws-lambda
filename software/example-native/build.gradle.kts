@@ -2,8 +2,8 @@ plugins {
     kotlin("plugin.spring")
     id("org.springframework.boot") version "3.1.1"
     id("com.github.johnrengelman.shadow") version "7.0.0"
-    id("io.spring.dependency-management") version "1.1.0"
 }
+apply(plugin = "io.spring.dependency-management")
 
 dependencies {
     implementation("software.amazon.awssdk:dynamodb-enhanced:2.20.68")

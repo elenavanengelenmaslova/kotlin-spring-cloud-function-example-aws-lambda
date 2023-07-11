@@ -1,8 +1,9 @@
 plugins {
     kotlin("plugin.spring")
     id("org.springframework.boot") version "3.1.1"
-    id("io.spring.dependency-management") version "1.1.0"
 }
+apply(plugin = "io.spring.dependency-management")
+
 buildscript {
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:2.7.8")
