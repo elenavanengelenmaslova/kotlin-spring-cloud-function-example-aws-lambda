@@ -15,7 +15,7 @@ class InfrastructureNativeX86Stack(scope: Construct, id: String, props: StackPro
         val function = Function.Builder.create(this, functionId)
             .description("Kotlin Lambda Spring Cloud Function Native X86")
             .handler("org.springframework.cloud.function.adapter.aws.FunctionInvoker")
-            .runtime(Runtime.JAVA_11)
+            .runtime(Runtime.JAVA_17)
             .code(Code.fromAsset("../build/dist/function-native.jar"))
             .logRetention(RetentionDays.ONE_WEEK)
             .memorySize(512)

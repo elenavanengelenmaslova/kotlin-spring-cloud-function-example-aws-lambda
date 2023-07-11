@@ -15,7 +15,7 @@ class InfrastructureJvmX86C1Stack(scope: Construct, id: String, props: StackProp
         val function = Function.Builder.create(this, functionId)
             .description("Kotlin Lambda Spring Cloud Function JVM X86 C1")
             .handler("org.springframework.cloud.function.adapter.aws.FunctionInvoker")
-            .runtime(Runtime.JAVA_11)
+            .runtime(Runtime.JAVA_17)
             .code(Code.fromAsset("../build/dist/function.jar"))
             .logRetention(RetentionDays.ONE_WEEK)
             .memorySize(512)

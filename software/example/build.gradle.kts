@@ -10,13 +10,11 @@ buildscript {
 }
 
 dependencies {
-    implementation("software.amazon.awssdk:dynamodb-enhanced:2.20.26")
+    implementation("software.amazon.awssdk:dynamodb-enhanced:2.20.68")
     implementation("com.amazonaws:aws-lambda-java-core:1.2.2")
     implementation("com.amazonaws:aws-lambda-java-events:3.11.1")
     // https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-function-adapter-aws
-    implementation("org.springframework.cloud:spring-cloud-function-adapter-aws:3.2.8")
-    // https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-function-web
-    implementation("org.springframework.cloud:spring-cloud-function-web:3.2.8")
+    implementation("org.springframework.cloud:spring-cloud-function-adapter-aws:4.0.4")
     implementation("org.slf4j:slf4j-api:2.0.5")
     implementation("org.slf4j:slf4j-simple:2.0.5")
     // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test

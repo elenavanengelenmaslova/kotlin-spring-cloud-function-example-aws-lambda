@@ -16,7 +16,7 @@ class InfrastructureSnapStartOnlyStack(scope: Construct, id: String, props: Stac
         val function = Function.Builder.create(this, functionId)
             .description("Kotlin Lambda Spring Cloud Function JVM X86 SnapStart Only")
             .handler("org.springframework.cloud.function.adapter.aws.FunctionInvoker")
-            .runtime(Runtime.JAVA_11)
+            .runtime(Runtime.JAVA_17)
             .code(Code.fromAsset("../build/dist/function.jar"))
             .logRetention(RetentionDays.ONE_WEEK)
             .memorySize(512)

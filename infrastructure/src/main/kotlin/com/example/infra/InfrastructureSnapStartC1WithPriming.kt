@@ -16,7 +16,7 @@ class InfrastructureSnapStartC1WithPriming(scope: Construct, id: String, props: 
         val function = Function.Builder.create(this, functionId)
             .description("Kotlin Lambda Spring Cloud Function JVM X86 SnapStart C1 With Priming")
             .handler("org.springframework.cloud.function.adapter.aws.FunctionInvoker")
-            .runtime(Runtime.JAVA_11)
+            .runtime(Runtime.JAVA_17)
             .code(Code.fromAsset("../build/dist/function-with-priming.jar"))
             .logRetention(RetentionDays.ONE_WEEK)
             .memorySize(512)
