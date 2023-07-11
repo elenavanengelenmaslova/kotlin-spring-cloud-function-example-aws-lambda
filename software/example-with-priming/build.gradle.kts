@@ -5,7 +5,7 @@ plugins {
 }
 buildscript {
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:3.1.1")
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.7.8")
     }
 }
 
@@ -15,7 +15,7 @@ dependencies {
     implementation("com.amazonaws:aws-lambda-java-events:3.11.1")
     // https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-function-adapter-aws
     implementation("org.springframework.cloud:spring-cloud-function-adapter-aws:4.0.4")
-    implementation("io.github.crac:org-crac:1.3.0")
+    implementation("io.github.crac:org-crac:0.1.3")
     // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5:1.5.31")
