@@ -1,6 +1,6 @@
 plugins {
     kotlin("plugin.spring")
-    id("org.springframework.boot") version "2.7.8"
+    id("org.springframework.boot") version "3.1.1"
     id("com.github.johnrengelman.shadow") version "7.0.0"
     id("io.spring.dependency-management") version "1.1.0"
 }
@@ -11,8 +11,6 @@ dependencies {
     implementation("com.amazonaws:aws-lambda-java-events:3.11.1")
     // https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-function-adapter-aws
     implementation("org.springframework.cloud:spring-cloud-function-adapter-aws:4.0.4")
-    implementation("org.slf4j:slf4j-api:2.0.5")
-    implementation("org.slf4j:slf4j-simple:2.0.5")
     // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5:1.5.31")
