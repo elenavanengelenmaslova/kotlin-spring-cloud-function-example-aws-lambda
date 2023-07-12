@@ -6,7 +6,7 @@ apply(plugin = "io.spring.dependency-management")
 
 buildscript {
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.7.8")
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:3.1.1")
     }
 }
 
