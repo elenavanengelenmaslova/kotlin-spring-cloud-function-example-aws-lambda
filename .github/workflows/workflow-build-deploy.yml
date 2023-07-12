@@ -167,4 +167,5 @@ jobs:
         run: |
           cd ${GITHUB_WORKSPACE}/infrastructure
           npm install -g aws-cdk
+          cdk bootstrap aws://${DEPLOY_TARGET_ACCOUNT}/${DEPLOY_TARGET_REGION}
           cdk deploy -vv --require-approval never ${{ matrix.config.stack-name }} --exclusively
