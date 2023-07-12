@@ -43,9 +43,6 @@ tasks.bootJar {
     into("lib") {
         from(configurations.runtimeClasspath)
     }
-    dependencies{
-        exclude("org.springframework.cloud:spring-cloud-function-web:2.7.8")
-    }
 
     archiveFileName.set("function.jar")
     destinationDirectory.set(file("${project.rootDir}/build/dist"))
