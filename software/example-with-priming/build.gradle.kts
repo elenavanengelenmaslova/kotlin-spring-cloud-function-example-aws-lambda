@@ -15,7 +15,7 @@ dependencies {
     implementation("com.amazonaws:aws-lambda-java-core:1.2.2")
     implementation("com.amazonaws:aws-lambda-java-events:3.11.1")
     // https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-function-adapter-aws
-    implementation("org.springframework.cloud:spring-cloud-function-adapter-aws:4.0.4")
+    implementation("org.springframework.cloud:spring-cloud-function-adapter-aws:4.0.5")
     implementation("io.github.crac:org-crac:0.1.3")
     // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test
     testImplementation("org.springframework.boot:spring-boot-starter-test")
